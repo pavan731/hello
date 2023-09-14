@@ -20,7 +20,7 @@ pipeline{
 	}
 	stage('docker build'){
               steps{
-                sh ' docker build -t pavanrr/helloworld /hello . '
+                sh ' docker build -t pavanrr/helloworld . '
 	      }
 	}
      
