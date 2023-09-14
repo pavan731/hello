@@ -30,7 +30,7 @@ pipeline{
 	      }
 	}
 
-	stage('docker push'){
+	stage('docker run'){
               steps{
                 sh ' docker run -p 80:80 pavanrr/helloworld:latest '
 	      }
