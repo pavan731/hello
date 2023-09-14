@@ -20,7 +20,7 @@ pipeline{
 	}
 	stage('docker build'){
               steps{
-                sh "docker build -t pavanrr/helloworld ." 
+                sh "docker build -t pavanrr/helloworld /var/lib/jenkins/workspace/hello/hello." 
 	      }
 	}
      
