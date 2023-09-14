@@ -5,7 +5,7 @@ pipeline{
 	{
            steps{
               sh ' rm -r *'
-	      sh ' rm -r ../../../../www/html/*'
+	      
 	   }
 	}
 
@@ -18,12 +18,24 @@ pipeline{
 	     }
  
 	}
-	stage('deploy'){
+	stage('docker build'){
               steps{
-                sh 'mv hello/* ../../../../www/html'
+                sh ' docker build -t pavanrr/helloworld . '
 	      }
 	}
      
+	 stage('docker push'){
+              steps{
+                sh ' docker push pavanrr/helloworld:latest '
+	      }
+	}
+
+	stage('docker push'){
+              steps{
+                sh ' docker run -p 80:80 pavanrr/helloworld:latest '
+	      }
+	}
+
    }
   
 }
